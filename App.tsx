@@ -8,72 +8,26 @@ import Login from './Screens/login';
 import Changepassword from './Screens/changepass';
 import {Button, Image, Text, View} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
-import RNFS from 'react-native-fs';
 import axios from 'axios';
+import tailwind from 'tailwindcss';
 
-const stack = createNativeStackNavigator();
+
+
+
 
 const App = () => {
-  const [filename, setfilename] = useState('');
-  const [filetype, setfiletype] = useState('');
-  const [fileuri, setfileuri] = useState('');
-  const [uploadurl, setuploadurl] = useState('');
-  const [downloadurl,setdownloadurl] = useState('')
 
-  const handleFileSelection = async () => {
-    try {
-      const res = await DocumentPicker.pick({
-        type: ['image/jpeg'], // Restrict to JPEG files
-      });
-
-      setfilename(res[0]?.name || '');
-      setfiletype(res[0].type || '');
-      setfileuri(res[0].uri);
-    } catch (err) {
-      console.log(err + 'this is error');
-    }
-  };
-
-  const getPreSignedUrl = async () => {
-    try {
-      let url = 'http://10.0.2.2:3000/geturl';
-      const response = await axios.get(url, {
-        params: {
-          filename,
-          filetype,
-        },
-      });
-      setuploadurl(response.data.url);
-      setdownloadurl(response.data.s3Url)
-      console.log(response.data.s3Url)
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const uploadData = async () => {
-    try {
-      const file = await fetch(fileuri);
-      const response = axios.put(uploadurl, file, {
-        headers: {
-          'Content-Type': filetype,
-        },
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   return (
-    <View>
-      <Button title="Select file" onPress={handleFileSelection} />
-      <Button title="Get Presigned Url" onPress={getPreSignedUrl} />
-      <Button title="Upload file" onPress={uploadData} />
+    <View className="mt-8 px-2 bg-cyan-950 flex-1">
+      <Text className="p-10 text-gray-100 ">Tail Wind Css - Welcome to react native</Text>
     </View>
   );
 };
 
 export default App;
+
+// const stack = createNativeStackNavigator();
 
 /* <NavigationContainer>
 <stack.Navigator initialRouteName="Landing screen">
