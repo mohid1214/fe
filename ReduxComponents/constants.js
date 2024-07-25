@@ -1,0 +1,1 @@
+export const standardtoken = 'Standard_token';
