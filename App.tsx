@@ -10,18 +10,18 @@ import {Button, Image, Text, View} from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 import axios from 'axios';
 import tailwind from 'tailwindcss';
+import styled from 'styled-components/native';
 
-
-
-
+const StyledHeading = styled.View`
+   background-color: blue;
+   flex:1
+`;
 
 const App = () => {
-
-
   return (
-    <View className="mt-8 px-2 bg-cyan-950 flex-1">
-      <Text className="p-10 text-gray-100 ">Tail Wind Css - Welcome to react native</Text>
-    </View>
+    <StyledHeading className="bg-red-500">
+      <Text className="text-green-500 flex-1">Tailwinds here</Text>
+    </StyledHeading>
   );
 };
 
