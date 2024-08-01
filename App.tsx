@@ -1,16 +1,16 @@
 import React from 'react';
 import {FlatList, TouchableHighlight, View} from 'react-native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {StyleSheet} from 'react-native';
 import {Registration} from './Screens/Registration/Registration';
+import SignInButton from './Screens/Registration/GoogleLogin';
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <View style={{flex: 1}}>
-        <Registration />
+    
+      <View>
+        <SignInButton />
       </View>
-    </SafeAreaProvider>
+    
   );
 };
 
