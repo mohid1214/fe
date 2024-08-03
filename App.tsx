@@ -2,14 +2,22 @@ import React from 'react';
 import {FlatList, TouchableHighlight, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {Registration} from './Screens/Registration/Registration';
-import SignInButton from './Screens/Registration/GoogleLogin';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Login } from './Screens/Login/Longin';
+import { Home } from './Screens/HomeScreen/Home';
 const App = () => {
+
+  const Stack = createNativeStackNavigator();
   return (
     
-      <View>
-        <SignInButton />
-      </View>
+     <NavigationContainer>
+      <Stack.Navigator initialRouteName='Register'>
+        <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen  name='Register' component={Registration}/> 
+        <Stack.Screen name='Home' component={Home} />
+      </Stack.Navigator>
+     </NavigationContainer>
     
   );
 };

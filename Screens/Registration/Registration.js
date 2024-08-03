@@ -8,7 +8,7 @@ import {
   ListItem,
   useTheme,
 } from '@rneui/themed';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {RegHeading} from './RegHeading';
 import {RegName} from './RegName';
 import {RegCountry} from './RegCountry';
@@ -16,8 +16,9 @@ import {Birthday} from './Birthday';
 import {RegEmail} from './RegEmil';
 import {RegPass} from './RegPass';
 import {RegSubmit} from './RegSubmit';
+import { NavigationContainer } from '@react-navigation/native';
 
-export const Registration = () => {
+export const Registration = ({navigation}) => {
   const [firstName, setFirstName] = useState('');
   const [firstNameError, setFirstNameError] = useState(false);
 
@@ -41,8 +42,6 @@ export const Registration = () => {
 
   const [pass, setPass] = useState('');
   const [passError, setPassError] = useState(false);
-
-  
 
   return (
     <View style={{backgroundColor: '#E0F7FA', flex: 1}}>
@@ -98,6 +97,16 @@ export const Registration = () => {
         emailError = {emailError}
         passError = {passError}
       />
+
+    <View style={{marginLeft:62,flexDirection:'row',marginTop:20}}>
+      <Text style={{fontSize:18}}>already have an account?</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <Text style={{fontSize:18,color:'blue'}}>
+          Login
+        </Text>
+      </TouchableOpacity>
+    </View>
+
     </View>
   );
 };
