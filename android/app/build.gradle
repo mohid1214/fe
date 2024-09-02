@@ -76,7 +76,7 @@ android {
 
     namespace "com.practice"
     defaultConfig {
-        applicationId "com.practice"
+        applicationId "com.symyals"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
